@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Compeer.unity
     guid: 246e373b1c2301b4aaca6c9a1dd8c83a
   - enabled: 0
-    path: Assets/Scenes/Text.unity
-    guid: 422ad63416a6d244cab4fbf5347214fd
+    path: Assets/Samples/Rokid UXR SDK/3.0.3/UXR Sample/Scenes/uxr003-VoiceRecognize.unity
+    guid: 18793b1a44ffa461f8b699c6329ffb04
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 18bc5eeae35486442b940d1527d8f640, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6f2d3a87b36b23246b85b495de0cd7c9, type: 2}

@@ -3,7 +3,13 @@
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
     <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/Chat/ChatSample.cs" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/Chat/ChatSetting.cs" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/Chat/RTSpeechHandler.cs" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/Chat/VoiceInputs.cs" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/LLM/QW/ChatQW.cs" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/TTS&amp;&amp;STT/Azure/AzureSettings.cs" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/TTS&amp;&amp;STT/TTS.cs" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/WOV/UnityWakeOnVoice.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Scripts/WOV/WOV.cs" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/Assets/AIChatTookit/Tool/LipSync/Scripts/AudioToLipSample.cs" charset="GB2312" />
   </component>
 </project>
