@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
-  m_Prompt: "\u8BF7\u4F60\u626E\u6F14\u4E00\u4F4D\u540D\u53EB\u80E1\u6843\u7684\u5C11\u5973\uFF0C\u548C\u4F60\u7684\u5976\u5976\uFF08\u4E5F\u5C31\u662F\u6211\uFF09\u5BF9\u8BDD\uFF0C\u5BF9\u8BDD\u4E3B\u9898\u6709\u5173\u8001\u5E74\u4EBA\u7684\u751F\u6D3B\u8D77\u5C45\uFF0C\u8863\u98DF\u4F4F\u884C\uFF0C\u4F7F\u7528\u53E3\u8BED\u5316\u7684\u5F62\u5F0F\u548C\u6211\u5BF9\u8BDD"
+  m_Prompt: "\u8BF7\u4F60\u626E\u6F14\u4E00\u4F4D\u540D\u53EB\u80E1\u6843\u7684\u5C11\u5973\uFF0C\u548C\u4F60\u7684\u7237\u7237\u5BF9\u8BDD\uFF0C\u5BF9\u8BDD\u4E3B\u9898\u6709\u5173\u8001\u5E74\u4EBA\u7684\u751F\u6D3B\u8D77\u5C45\uFF0C\u8863\u98DF\u4F4F\u884C\u3002\u8868\u8FBE\u53E3\u8BED\u5316\u3001\u4EB2\u5207\u81EA\u7136\u3002\u6BCF\u6B21\u56DE\u590D\u5B57\u6570\u572820\u5B57\u4EE5\u5185\u3002"
   lan: "\u4E2D\u6587"
   m_HistoryKeepCount: 15
   m_DataList: []
@@ -646,6 +646,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156387668}
   m_CullTransparentMesh: 0
+--- !u!1 &184132152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184132153}
+  - component: {fileID: 184132154}
+  m_Layer: 0
+  m_Name: ProactiveHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &184132153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184132152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1208485307}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &184132154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184132152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42255385c9496f4b8aa0183af9e8de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChatSample: {fileID: 1208485306}
+  m_SpeechHandler: {fileID: 465517249}
+  m_EnableTimeGreeting: 1
+  m_MorningGreetingHour: 8
+  m_EveningGreetingHour: 20
+  m_Reminders:
+  - content: "\u8BB0\u5F97\u5403\u996D"
+    hour: 18
+    minute: 40
+    enabled: 1
+    repeatDaily: 0
+    lastTriggerDate: 
+  - content: "\u51FA\u95E8\u953B\u70BC"
+    hour: 18
+    minute: 50
+    enabled: 1
+    repeatDaily: 0
+    lastTriggerDate: 
 --- !u!1 &198190937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1317,7 @@ MonoBehaviour:
   m_SilenceTimer: 0
   m_ChatSample: {fileID: 1208485306}
   m_VoiceAWake: {fileID: 381665765}
+  m_EnableContinuousDialog: 1
   m_Greeting: {fileID: 810295640}
   m_GreatingVoice: {fileID: 8300000, guid: 0d67d3091f6e84047bbcde64bd9c3308, type: 3}
   m_PrintText: {fileID: 1301146042}
@@ -3223,6 +3286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 465517248}
+  - {fileID: 184132153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1240158454

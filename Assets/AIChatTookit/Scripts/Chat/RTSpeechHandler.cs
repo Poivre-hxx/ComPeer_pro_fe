@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,6 +78,11 @@ public class RTSpeechHandler : MonoBehaviour
     [SerializeField] private AudioClip m_GreatingVoice;
     
     [SerializeField] private Text m_PrintText;
+    
+    /// <summary>
+    /// 对话会话结束事件
+    /// </summary>
+    public Action OnDialogSessionEnd;
 
     private void Awake()
     {
@@ -124,7 +130,8 @@ public class RTSpeechHandler : MonoBehaviour
             // 记录唤醒时间
             m_LastInteractionTime = Time.time;
             
-            if (m_Greeting)
+            // 根据是否是主动对话决定是否播放问候音
+            if (_msg != "主动对话" && m_Greeting != null)
             {
                 m_Greeting.clip = m_GreatingVoice;
                 m_Greeting.Play();
@@ -249,22 +256,33 @@ public class RTSpeechHandler : MonoBehaviour
         else
         {
             // 单次对话模式：关闭麦克风
-            if (Microphone.IsRecording(m_MicrophoneName))
-            {
-                Microphone.End(m_MicrophoneName);
-            }
-            
-            m_AwakeState = false;
-            m_IsRecording = false;
-            
-            if (m_DetectCoroutine != null)
-            {
-                StopCoroutine(m_DetectCoroutine);
-                m_DetectCoroutine = null;
-            }
-            
-            PrintLog("等待唤醒词...");
+            EndDialogSession();
         }
+    }
+    
+    /// <summary>
+    /// 结束对话会话
+    /// </summary>
+    private void EndDialogSession()
+    {
+        if (Microphone.IsRecording(m_MicrophoneName))
+        {
+            Microphone.End(m_MicrophoneName);
+        }
+        
+        m_AwakeState = false;
+        m_IsRecording = false;
+        
+        if (m_DetectCoroutine != null)
+        {
+            StopCoroutine(m_DetectCoroutine);
+            m_DetectCoroutine = null;
+        }
+        
+        PrintLog("等待唤醒词...");
+        
+        // 触发对话结束事件
+        OnDialogSessionEnd?.Invoke();
     }
 
     /// <summary>
@@ -282,16 +300,8 @@ public class RTSpeechHandler : MonoBehaviour
                 if (Time.time - m_LastInteractionTime > m_LossAwakeTimeLimit)
                 {
                     // 会话超时，退出对话模式
-                    m_AwakeState = false;
-                    m_IsRecording = false;
-                    m_LockState = false;
-                    
-                    if (Microphone.IsRecording(m_MicrophoneName))
-                    {
-                        Microphone.End(m_MicrophoneName);
-                    }
-                    
                     PrintLog("对话超时，等待唤醒词...");
+                    EndDialogSession();
                     yield break; // 结束协程
                 }
             }
